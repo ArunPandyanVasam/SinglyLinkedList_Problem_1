@@ -13,7 +13,7 @@ void displayList();
 int main(void) {
     //  1. Write a program in C to create and display a Singly Linked List.
     int n;
-    printf("\nInout the number of nodes: ");
+    printf("\nInput the number of nodes: ");
     scanf("%d", &n);
     createNodeList(n);
     printf("\nData entered in the list: ");
@@ -30,7 +30,27 @@ void createNodeList(int n) {
     if (stNode == NULL) {
         printf("Memory can not be allocated.");
     } else {
+        printf("Input data for node 1: ");
+        scanf("%d", &num);
+        stNode->num = num;
+        stNode->nextPtr = NULL;
+        tmp = stNode;
+    }
 
+    for (i = 2; i <= n; i++) {
+        fnNode = (struct node *) malloc(sizeof(struct node));
+        if (fnNode == NULL) {
+            printf("Memory can not be allocated.");
+            break;
+        } else {
+            printf("Input data for node %d: ");
+            scanf("%d", &num);
+            fnNode->num = num;
+            fnNode->nextPtr = NULL;
+
+            tmp->nextPtr = fnNode;
+            tmp = tmp->nextPtr;
+        }
     }
 
 }
