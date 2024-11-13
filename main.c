@@ -43,12 +43,28 @@ void createNodeList(int n) {
             printf("Memory can not be allocated.");
             break;
         } else {
-            printf("Input data for node %d: ");
+            printf("Input data for node %d: ", i);
             scanf("%d", &num);
             fnNode->num = num;
             fnNode->nextPtr = NULL;
 
             tmp->nextPtr = fnNode;
+            tmp = tmp->nextPtr;
+        }
+    }
+
+}
+
+void displayList() {
+    struct node *tmp;
+
+    if (stNode == NULL) {
+        printf("List is empty.");
+    } else {
+        tmp = stNode;
+
+        while (tmp != NULL) {
+            printf("\nData = %d", tmp->num);
             tmp = tmp->nextPtr;
         }
     }
